@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf8">
+	<link rel="stylesheet"      title="landing" >
+  <style>
+table {
+    /* border-collapse: collapse; */
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding-left: 8px;
+}
+
+tr:nth-child(odd){background-color:#CE569C;}
+tr:nth-child(even){background-color:#EAD4E1;}
+th {background-color:#FFA07A;}
+
+
+.einruck1 *  { 
+padding-left: 20px;
+background-color: #FFB86B; 
+}
+.einruck2 * { 
+padding-left: 20px;
+background-color: #EFD03E ; 
+}
+tr[id$="plus"] * { 
+padding-left: 20px;
+background-color: #DB7B12  ; 
+}
+</style>
+  <script src="js/main.js"></script>
+	<script src="js/templates.js">
+  
+
+
+</script>
+  
+</head>
+<body >
+
+<header>
+
+</header>
+
+<div id="inhalt">
+
+</div>
+<div id="inhalt2">
+
+</div>
+
+<script>
+//veraendertes JSON Objekt: mit mehreren Unterobjekten
+
+
+var myObj2= {"Title":"Pulp Fiction","Year":"1994","Rated":"R","Released":"14 Oct 1994","Runtime":"154 min","Genre":"Crime, Drama","Director":"Quentin Tarantino","Writer":"Quentin Tarantino (stories), Roger Avary (stories), Quentin Tarantino","Actors":"Tim Roth, Amanda Plummer, Laura Lovelace, John Travolta","Plot":"The lives of two mob hit men, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption.","Language":"English, Spanish, French","Country":"USA","Awards":"Won 1 Oscar. Another 60 wins & 69 nominations.","Poster":"https://images-na.ssl-images-amazon.com/images/M/MV5BMTkxMTA5OTAzMl5BMl5BanBnXkFtZTgwNjA5MDc3NjE@._V1_SX300.jpg","Ratings":[{"Source":"Internet Movie Database","Value":"8.9/10"},{"Source":"Rotten Tomatoes","Value":"94%"},{"Source":"Metacritic","Value":"94/100","Metascore":"94","imdbRating":"8.9","imdbVotes":"1,454,781","imdbID":"tt0110912"}],"Type":"movie","DVD":"19 May 1998","BoxOffice":"N/A","Production":"Miramax Films","Website":"N/A","Response":"True"};
+
+var myObj3= {
+  "name": "jsonlintdotcom",
+  "version": "0.0.1",
+  "description": "The JSON Validator",
+  "private": true,
+  "scripts": {
+    "test": "npm run lint",
+    "build": "npm run clean && NODE_ENV=production webpack",
+    "develop": "NODE_ENV=development webpack-dev-server --port 8106",
+    "clean": "rimraf dist",
+    "upgrade": "ncu --upgradeAll && npm install",
+    "lint": "eslint . --ext .js --ignore-pattern '**/node_modules/**' --ignore-pattern '**/dist/**'",
+    "deploy": "pm2 deploy ecosystem.json production --force",
+    "stylelint": "stylelint static/css/style.css"
+  },
+  "powers": [
+  
+        "Million tonne punch",
+        "Damage resistance",
+        "Superhuman reflexes",
+		{
+		"name": "Molecule Man",
+		"age": 29,
+		"secretIdentity": "Dan Jukes",
+		"powers": [
+        "Radiation resistance",
+        "Turning tiny",
+        "Radiation blast"
+					]
+		}
+      ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/circlecell/jsonlintdotcom.git"
+  },
+  "keywords": [
+    "jsonlint",
+    "lint",
+    "json"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/circlecell/jsonlintdotcom/issues"
+  },
+  "homepage": "https://github.com/circlecell/jsonlintdotcom#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "babili-webpack-plugin": "^0.1.2",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.28.4",
+    "eslint": "^4.4.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-import": "^2.7.0",
+    "exports-loader": "^0.6.4",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^2.30.1",
+    "napa": "^3.0.0",
+    "npm": "^5.3.0",
+    "npm-check-updates": "^2.12.1",
+    "open-browser-webpack-plugin": "0.0.5",
+    "optimist": "^0.6.1",
+    "rimraf": "^2.6.1",
+    "script-loader": "^0.7.0",
+    "string-replace-loader": "^1.3.0",
+    "style-loader": "^0.18.2",
+    "stylelint": "^8.0.0",
+    "stylelint-config-standard": "^17.0.0",
+    "uglifyjs-webpack-plugin": "^0.4.6",
+    "webpack": "^3.4.1",
+    "webpack-dev-server": "^2.6.1"
+  },
+  "dependencies": {
+    "balajs": "^1.0.6",
+    "clipboard": "^1.7.1",
+    "codemirror": "^5.28.0",
+    "js-beautify": "^1.6.14",
+    "jsonlint-mod": "^1.7.2",
+    "jsonminify": "^0.4.1"
+  }
+};
+
+
+/* var summu = "";
+for (x in myObj) {
+    summu += x + ": " + myObj[x] + "<br>";
+}
+document.getElementById("demo").innerHTML = summu; */
+
+/* <!-- function traverse_it(obj){
+   var totalJSONResolved="";   
+    for(var prop in obj){
+        if(typeof obj[prop]=='object')
+        {
+            
+            if (isNaN(prop) == true)  
+            {
+            totalJSONResolved += prop + ' : ';
+            }
+            traverse_it(obj[prop]);
+            
+            }else{
+            // something else
+           
+           totalJSONResolved += prop + ' : '+ obj[prop]+ ' '+ "\n";
+            }
+        
+        }
+        return totalJSONResolved;
+} --> */
+
+//make a table, give id
+function createTabelle(idname) {
+   
+    let body = document.getElementById("inhalt");
+    
+    let tbl = document.createElement("TABLE");
+    tbl.setAttribute("id", idname);
+    
+    body.appendChild(tbl);  
+    }
+ //TableHeader   
+ function createTableHeader(tableidname,classvalue="head",value1="criterium",value2="values") {    
+    // Tablerow with two tableheads, each with textnodes
+	var taro = document.createElement("TR");
+    taro.setAttribute("class", classvalue);
+    var th1 = document.createElement("TH");
+    var th2 = document.createElement("TH");
+    var key = document.createTextNode(value1);
+    var value = document.createTextNode(value2);
+    th1.appendChild(key);
+    th2.appendChild(value);
+    taro.appendChild(th1);
+    taro.appendChild(th2);
+    
+    document.getElementById(tableidname).appendChild(taro);
+    var tblBody = document.createElement("tbody");
+    tblBody.setAttribute("id","tablebody");
+    document.getElementById(tableidname).appendChild(tblBody);
+    }                     
+//haengt die Tabllenrow mit zwei TD-Boxen an, gibt die Row als Element zurueck                      
+function createTableRowCell(bodyname,idvalue,value1="oneempty",value2="twoempty") {    
+    //First, you create elements from the top down; then you attach the children to the parents from the bottom up.
+     
+     if (!!bodyname) { 
+        var taro = document.createElement("TR"); //tablerow
+        taro.setAttribute("id", idvalue);
+        var tada1 = document.createElement("TD"); //tabledata
+        var tada2 = document.createElement("TD");
+		
+        var key = document.createTextNode(value1); //text
+        if (value2 == "empty") {value2 = " "};
+		var value = document.createTextNode(value2);
+		tada1.appendChild(key);
+        tada2.appendChild(value);
+		taro.appendChild(tada1);
+        taro.appendChild(tada2);
+		document.getElementById(bodyname).appendChild(taro);
+        return taro;
+                               }
+        else{console.log("no table, no tablebody");}
+}
+//liest das JSON Objekt rekursiv aus, wenn ein Unterobjekt auftritt
+//gibt allen Zeilen eine ID und einen Classnamen bei Unterobjekten
+function traverse_buildTable(obj,counter=0){
+var underObjCounter = counter;
+for (var x in obj) {
+    
+    if(typeof obj[x]=='object' )
+        {
+            
+			var size = Object.keys(obj[x]).length;
+			underObjCounter++
+			if (isNaN(x) == true){  //if x is no number or index: it is the key to an object
+              
+			  var tabro= createTableRowCell("tablebody",x + "plus",x + ":","empty");
+               tabro.setAttribute("class", "einruck" + underObjCounter);
+								 }
+			  traverse_buildTable(obj[x],underObjCounter);
+			  underObjCounter--;
+        }else{
+              var tabo = createTableRowCell("tablebody",x,x + ":",obj[x] );
+              if (underObjCounter > 0){
+					tabo.setAttribute("class", "einruck" + underObjCounter); 
+									}
+         }
+}
+//behalte die Tiefe der nested objekte im Blick
+underObjCounter--;
+}
+//in drei Zeilen wird die Tabelle erstellt:
+createTabelle("maitaebl");
+createTableHeader("maitaebl","movie","Eigenschaft","Details");
+/* var superstring = traverse_it(myObj);
+console.log(superstring); */
+traverse_buildTable(myObj3);
+
+
+
+function simpletable(idname){
+	let body = document.getElementById("inhalt");
+    let tbl = document.createElement("TABLE");
+    tbl.setAttribute("id", idname);
+    body.appendChild(tbl); }
+
+function createRowWithCells(tablename,idvalue,value1="oneempty",value2="twoempty") {    
+    //First, you create elements from the top down; then you attach the children to the parents from the bottom up.
+     
+     if (!!tablename) { 
+        var taro = document.createElement("TR"); //tablerow
+        taro.setAttribute("id", idvalue);
+        var tada1 = document.createElement("TD"); //tabledata
+        
+		var tada2 = document.createElement("TD");
+		
+        var key = document.createTextNode(value1); //text
+        if (value2 == "empty") {value2 = " "};
+		var value = document.createTextNode(value2);
+		tada1.appendChild(key);
+        tada2.appendChild(value);
+		taro.appendChild(tada1);
+        taro.appendChild(tada2);
+		document.getElementById(tablename).appendChild(taro);
+        return taro;
+                               }
+        else{console.log("no table, no tablebody");}
+}
+function simplertable (idname){
+	
+    let tbl2 = document.createElement("TABLE");
+    tbl2.setAttribute("id", idname);
+	return tbl2;
+     }
+function appendsimplertable (tablename,idvalue, newtable){
+	
+		if (!!tablename) { 
+		var taro = document.createElement("TR"); //tablerow
+        taro.setAttribute("id", idvalue);
+        var tada1 = document.createElement("TD"); //tabledata
+        var tada2 = document.createElement("TD");
+		var key = document.createTextNode("sollleer"); //text
+        tada1.appendChild(key);
+		
+		let tbl3 = document.createElement("TABLE");
+		tbl3.setAttribute("id", newtable);
+		var taronested = document.createElement("TR"); //tablerow
+        taronested.setAttribute("id", "more");
+        var tada3 = document.createElement("TD"); //tabledata
+        var tada4 = document.createElement("TD");
+		var ff = document.createTextNode("ffff "); //text
+		var dd = document.createTextNode("dddd "); //text
+		tada3.appendChild(ff);
+		tada4.appendChild(dd);
+		taronested.appendChild(tada3);
+		taronested.appendChild(tada4);
+		tbl3.appendChild(taronested);
+		tada2.appendChild(tbl3);
+		
+		taro.appendChild(tada1);
+        taro.appendChild(tada2);
+		document.getElementById(tablename).appendChild(taro);
+        return taro;
+		 }
+        else{console.log("no table, no tablebody");}
+     }
+
+/* <!-- simpletable("test");
+createRowWithCells("test","juhu",value1="oneempty",value2="twoempty");
+createRowWithCells("test","ddd",value1="dpty",value2="twodty");
+appendsimplertable("test","honk","bussi");
+appendsimplertable("bussi","egal","hurtig");
+appendsimplertable("bussi","egal2","hurtig2"); --> */
+</script>
+</body>
+</html>
