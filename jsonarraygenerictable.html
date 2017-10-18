@@ -19,11 +19,11 @@ tr:nth-child(even){background-color:#EAD4E1;}
 th {background-color:#FFA07A;}
 
 
-.einruck1 *  { 
+.rod1 *  { 
 padding-left: 20px;
 background-color: #FFB86B; 
 }
-.einruck2 * { 
+.rod2 * { 
 padding-left: 20px;
 background-color: #EFD03E ; 
 }
@@ -46,18 +46,58 @@ background-color: #DB7B12  ;
 
 </header>
 
-<div id="inhalt">
+<div id="content">
 
 </div>
-<div id="inhalt2">
 
-</div>
 
 <script>
-//veraendertes JSON Objekt: mit mehreren Unterobjekten
+
+var myobj1 = {
+  "squadName": "Super hero squad",
+  "homeTown": "Metro City",
+  "formed": 2016,
+  "secretBase": "Super tower",
+  "active": true,
+  "members": [
+    {
+      "name": "Molecule Man",
+      "age": 29,
+      "secretIdentity": "Dan Jukes",
+      "powers": [
+        "Radiation resistance",
+        "Turning tiny",
+        "Radiation blast"
+      ]
+    },
+    {
+      "name": "Madame Uppercut",
+      "age": 39,
+      "secretIdentity": "Jane Wilson",
+      "powers": [
+        "Million tonne punch",
+        "Damage resistance",
+        "Superhuman reflexes"
+      ]
+    },
+    {
+      "name": "Eternal Flame",
+      "age": 1000000,
+      "secretIdentity": "Unknown",
+      "powers": [
+        "Immortality",
+        "Heat Immunity",
+        "Inferno",
+        "Teleportation",
+        "Interdimensional travel"
+      ]
+    }
+  ]
+};
 
 
-var myObj2= {"Title":"Pulp Fiction","Year":"1994","Rated":"R","Released":"14 Oct 1994","Runtime":"154 min","Genre":"Crime, Drama","Director":"Quentin Tarantino","Writer":"Quentin Tarantino (stories), Roger Avary (stories), Quentin Tarantino","Actors":"Tim Roth, Amanda Plummer, Laura Lovelace, John Travolta","Plot":"The lives of two mob hit men, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption.","Language":"English, Spanish, French","Country":"USA","Awards":"Won 1 Oscar. Another 60 wins & 69 nominations.","Poster":"https://images-na.ssl-images-amazon.com/images/M/MV5BMTkxMTA5OTAzMl5BMl5BanBnXkFtZTgwNjA5MDc3NjE@._V1_SX300.jpg","Ratings":[{"Source":"Internet Movie Database","Value":"8.9/10"},{"Source":"Rotten Tomatoes","Value":"94%"},{"Source":"Metacritic","Value":"94/100","Metascore":"94","imdbRating":"8.9","imdbVotes":"1,454,781","imdbID":"tt0110912"}],"Type":"movie","DVD":"19 May 1998","BoxOffice":"N/A","Production":"Miramax Films","Website":"N/A","Response":"True"};
+var myObj2= {"Title":"Terminator 2: Judgment Day","Year":"1991","Rated":"R","Released":"03 Jul 1991","Runtime":"137 min","Genre":"Action, Sci-Fi, Thriller","Director":"James Cameron","Writer":"James Cameron, William Wisher","Actors":"Arnold Schwarzenegger, Linda Hamilton, Edward Furlong, Robert Patrick","Plot":"A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her ten year old son, John Connor, from a more advanced cyborg.","Language":"English, Spanish","Country":"USA, France","Awards":"Won 4 Oscars. Another 23 wins & 26 nominations.","Poster":"https://images-na.ssl-images-amazon.com/images/M/MV5BMGU2NzRmZjUtOGUxYS00ZjdjLWEwZWItY2NlM2JhNjkxNTFmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg","Ratings":[{"Source":"Internet Movie Database","Value":"8.5/10"},{"Source":"Rotten Tomatoes","Value":"93%"},{"Source":"Metacritic","Value":"75/100"}],"Metascore":"75","imdbRating":"8.5","imdbVotes":"813,949","imdbID":"tt0103064","Type":"movie","DVD":"31 Mar 1998","BoxOffice":"$198,116,802","Production":"TriStar Pictures","Website":"N/A","Response":"True"};
+
 
 var myObj3= {
   "name": "jsonlintdotcom",
@@ -74,22 +114,6 @@ var myObj3= {
     "deploy": "pm2 deploy ecosystem.json production --force",
     "stylelint": "stylelint static/css/style.css"
   },
-  "powers": [
-  
-        "Million tonne punch",
-        "Damage resistance",
-        "Superhuman reflexes",
-		{
-		"name": "Molecule Man",
-		"age": 29,
-		"secretIdentity": "Dan Jukes",
-		"powers": [
-        "Radiation resistance",
-        "Turning tiny",
-        "Radiation blast"
-					]
-		}
-      ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/circlecell/jsonlintdotcom.git"
@@ -148,40 +172,10 @@ var myObj3= {
     "jsonminify": "^0.4.1"
   }
 };
-
-
-/* var summu = "";
-for (x in myObj) {
-    summu += x + ": " + myObj[x] + "<br>";
-}
-document.getElementById("demo").innerHTML = summu; */
-
-/* <!-- function traverse_it(obj){
-   var totalJSONResolved="";   
-    for(var prop in obj){
-        if(typeof obj[prop]=='object')
-        {
-            
-            if (isNaN(prop) == true)  
-            {
-            totalJSONResolved += prop + ' : ';
-            }
-            traverse_it(obj[prop]);
-            
-            }else{
-            // something else
-           
-           totalJSONResolved += prop + ' : '+ obj[prop]+ ' '+ "\n";
-            }
-        
-        }
-        return totalJSONResolved;
-} --> */
-
 //make a table, give id
 function createTabelle(idname) {
    
-    let body = document.getElementById("inhalt");
+    let body = document.getElementById("content");
     
     let tbl = document.createElement("TABLE");
     tbl.setAttribute("id", idname);
@@ -207,9 +201,9 @@ function createTabelle(idname) {
     tblBody.setAttribute("id","tablebody");
     document.getElementById(tableidname).appendChild(tblBody);
     }                     
-//haengt die Tabllenrow mit zwei TD-Boxen an, gibt die Row als Element zurueck                      
+//one tablerow with two tabledata td                    
 function createTableRowCell(bodyname,idvalue,value1="oneempty",value2="twoempty") {    
-    //First, you create elements from the top down; then you attach the children to the parents from the bottom up.
+    //First, create elements from the top down; then attach the children to the parents from the bottom up.
      
      if (!!bodyname) { 
         var taro = document.createElement("TR"); //tablerow
@@ -229,8 +223,7 @@ function createTableRowCell(bodyname,idvalue,value1="oneempty",value2="twoempty"
                                }
         else{console.log("no table, no tablebody");}
 }
-//liest das JSON Objekt rekursiv aus, wenn ein Unterobjekt auftritt
-//gibt allen Zeilen eine ID und einen Classnamen bei Unterobjekten
+//reads JSON Objekt recursively, in case there is an object in the object
 function traverse_buildTable(obj,counter=0){
 var underObjCounter = counter;
 for (var x in obj) {
@@ -243,102 +236,25 @@ for (var x in obj) {
 			if (isNaN(x) == true){  //if x is no number or index: it is the key to an object
               
 			  var tabro= createTableRowCell("tablebody",x + "plus",x + ":","empty");
-               tabro.setAttribute("class", "einruck" + underObjCounter);
+               tabro.setAttribute("class", "rod" + underObjCounter);
 								 }
 			  traverse_buildTable(obj[x],underObjCounter);
 			  underObjCounter--;
         }else{
               var tabo = createTableRowCell("tablebody",x,x + ":",obj[x] );
               if (underObjCounter > 0){
-					tabo.setAttribute("class", "einruck" + underObjCounter); 
+					tabo.setAttribute("class", "rod" + underObjCounter); 
 									}
          }
 }
-//behalte die Tiefe der nested objekte im Blick
+//keep nested objekts under control
 underObjCounter--;
 }
-//in drei Zeilen wird die Tabelle erstellt:
-createTabelle("maitaebl");
-createTableHeader("maitaebl","movie","Eigenschaft","Details");
-/* var superstring = traverse_it(myObj);
-console.log(superstring); */
+//in three lines:
+createTabelle("mytabl");
+createTableHeader("mytabl","movie","criteria","details");
 traverse_buildTable(myObj3);
 
-
-
-function simpletable(idname){
-	let body = document.getElementById("inhalt");
-    let tbl = document.createElement("TABLE");
-    tbl.setAttribute("id", idname);
-    body.appendChild(tbl); }
-
-function createRowWithCells(tablename,idvalue,value1="oneempty",value2="twoempty") {    
-    //First, you create elements from the top down; then you attach the children to the parents from the bottom up.
-     
-     if (!!tablename) { 
-        var taro = document.createElement("TR"); //tablerow
-        taro.setAttribute("id", idvalue);
-        var tada1 = document.createElement("TD"); //tabledata
-        
-		var tada2 = document.createElement("TD");
-		
-        var key = document.createTextNode(value1); //text
-        if (value2 == "empty") {value2 = " "};
-		var value = document.createTextNode(value2);
-		tada1.appendChild(key);
-        tada2.appendChild(value);
-		taro.appendChild(tada1);
-        taro.appendChild(tada2);
-		document.getElementById(tablename).appendChild(taro);
-        return taro;
-                               }
-        else{console.log("no table, no tablebody");}
-}
-function simplertable (idname){
-	
-    let tbl2 = document.createElement("TABLE");
-    tbl2.setAttribute("id", idname);
-	return tbl2;
-     }
-function appendsimplertable (tablename,idvalue, newtable){
-	
-		if (!!tablename) { 
-		var taro = document.createElement("TR"); //tablerow
-        taro.setAttribute("id", idvalue);
-        var tada1 = document.createElement("TD"); //tabledata
-        var tada2 = document.createElement("TD");
-		var key = document.createTextNode("sollleer"); //text
-        tada1.appendChild(key);
-		
-		let tbl3 = document.createElement("TABLE");
-		tbl3.setAttribute("id", newtable);
-		var taronested = document.createElement("TR"); //tablerow
-        taronested.setAttribute("id", "more");
-        var tada3 = document.createElement("TD"); //tabledata
-        var tada4 = document.createElement("TD");
-		var ff = document.createTextNode("ffff "); //text
-		var dd = document.createTextNode("dddd "); //text
-		tada3.appendChild(ff);
-		tada4.appendChild(dd);
-		taronested.appendChild(tada3);
-		taronested.appendChild(tada4);
-		tbl3.appendChild(taronested);
-		tada2.appendChild(tbl3);
-		
-		taro.appendChild(tada1);
-        taro.appendChild(tada2);
-		document.getElementById(tablename).appendChild(taro);
-        return taro;
-		 }
-        else{console.log("no table, no tablebody");}
-     }
-
-/* <!-- simpletable("test");
-createRowWithCells("test","juhu",value1="oneempty",value2="twoempty");
-createRowWithCells("test","ddd",value1="dpty",value2="twodty");
-appendsimplertable("test","honk","bussi");
-appendsimplertable("bussi","egal","hurtig");
-appendsimplertable("bussi","egal2","hurtig2"); --> */
 </script>
 </body>
 </html>
